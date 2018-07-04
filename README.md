@@ -1,2 +1,2 @@
 # Alexa-with-NodeMCU
-Home Automation With Alexa and NodeMCU or ESP8266
+Home Automation With Alexa and ESP8266 or NodeMCU CP2102 V2
