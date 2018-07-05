@@ -9,92 +9,83 @@ Note: Edit lines from  12 to 21 for your config.
 fauxmoESP fauxmo;
 
 // Wifi: SSID and password
-const char* WIFI_SSID = "SSID";
-const char* WIFI_PASSWORD = "password"; 
+const char *WIFI_SSID = "SSID";
+const char *WIFI_PASSWORD = "password";
 
 // Device Names:
-const char* Device_Name_1 = "Light one";
-const char* Device_Name_2 = "Light two";
+const char *Device_Name_1 = "Light one";
+const char *Device_Name_2 = "Light two";
 
 // select pin on ESP/NodeMCU to control Relay
-const byte RelayPin_1 = 14; //D5 - GPIO14
-const byte RelayPin_2 = 12; //D6 - GPIO12
+const byte RelayPin_1 = 14;  // D5 - GPIO14
+const byte RelayPin_2 = 12;  // D6 - GPIO12
 
+void setup() {
+  Serial.begin(115200);
+  // setup and wifi connection
+  wifiSetup();
 
-void setup() 
-{
-   Serial.begin(115200);
-   //setup and wifi connection
-   wifiSetup();
- 
-   //Set relay pins to outputs
-   pinMode(RelayPin_1, OUTPUT);
-   pinMode(RelayPin_2, OUTPUT);
+  // Register device info
+  registerDevice(RelayPin_1, Device_Name_1);
+  registerDevice(RelayPin_2, Device_Name_2);
+  // Add new device here
 
-
-   //Set each relay pin to HIGH 
-   digitalWrite(RelayPin_1, HIGH);   
-   delay(500);
-   digitalWrite(RelayPin_2, HIGH);  
-   delay(500);
-    
-   // Device Names for Simulated Wemo switches
-   fauxmo.addDevice(Device_Name_1);
-   fauxmo.addDevice(Device_Name_2);
-   fauxmo.onMessage(callback); 
+  // Set callback function
+  fauxmo.onMessage(callback);
 }
 
-void loop() 
-{
-  fauxmo.handle();
+void loop() {
+  fauxmo.handle();  // fauxmo handle
 }
 
- // Device Callback
-void callback(uint8_t device_id, const char * device_name, bool state) 
-{
- 
-  //Switching action on detection of device name
-  //RelayPin_1:
-  if (String(Device_Name_1).equals(device_name)) {
-    if (!state) {
-      digitalWrite(RelayPin_1, HIGH);
-	    Serial.println(String(Device_Name_1) + " is OFF - line 61");
-    } 
-    else {
-      digitalWrite(RelayPin_1, LOW);
-	    Serial.println(String(Device_Name_1) + " is ON - line 65");
-    }
+// Device Callback
+void callback(uint8_t device_id, const char *device_name, bool state) {
+  // Switching action on detection of device name
+  callbackDevice(Device_Name_1, device_name, RelayPin_1, state);  // RelayPin_1
+  callbackDevice(Device_Name_2, device_name, RelayPin_2, state);  // RelayPin_2
+  // Add new device here
+}
+
+void registerDevice(byte _Relay_Pin, char *_Device_Name) {
+  // Set relay pins to outputs
+  pinMode(_Relay_Pin, OUTPUT);
+
+  // Set each relay pin to HIGH
+  digitalWrite(_Relay_Pin, HIGH);
+
+  // Device Names for Simulated Wemo switches
+  fauxmo.addDevice(_Device_Name);
+  delay(500);
+}; 
+
+void callbackDevice(char *_Device_Name, const char *_device, byte _Relay_Pin, bool _state) {
+  if (!String(_Device_Name).equals(_device)) return;
+
+  if (_state) {
+    digitalWrite(_Relay_Pin, LOW); 
+    Serial.println(String(_Device_Name) + " is ON");
+    return;
   }
-  //RelayPin_2:
-  if (String(Device_Name_2).equals(device_name)) { 
-    if (!state) {
-      digitalWrite(RelayPin_2, HIGH);
-	    Serial.println(String(Device_Name_2) + " is OFF - line 72");
-    } 
-    else {
-      digitalWrite(RelayPin_2, LOW);
-	    Serial.println(String(Device_Name_2) + " is ON - line 76");
-    }
+
+  digitalWrite(_Relay_Pin, HIGH);
+  Serial.println(String(_Device_Name) + " is OFF");
+};
+
+void wifiSetup() {
+  // Set WIFI module to STA mode
+  WiFi.mode(WIFI_STA);
+
+  // Connect
+  Serial.println();
+  Serial.printf("[WIFI] Connecting to %s ", WIFI_SSID);
+  Serial.println();
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+
+  // Wait
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(100);
   }
-}
-    
-void wifiSetup() 
-{
-   // Set WIFI module to STA mode
-   WiFi.mode(WIFI_STA);
-
-   // Connect
-   Serial.println ();
-   Serial.printf("[WIFI] Connecting to %s ", WIFI_SSID);
-   Serial.println();
-   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-
-   // Wait
-   while (WiFi.status() != WL_CONNECTED) 
-   {
-      Serial.print(".");
-      delay(100);
-   }
-   Serial.print(" ==> Wifi connected!" );
-   Serial.println ();
-}
+  Serial.print(" ==> Wifi connected!");
+  Serial.println();
+} 
