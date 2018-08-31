@@ -1,0 +1,167 @@
+{
+  "system": {
+    "name": "Nhà của Cún Kute",
+    "language": "vn-VI",
+    "colors": {
+      "header": "#000",
+      "switch": ""
+    }
+  },
+  "yahoo": 1117099,
+  "topButton": {
+    "name": "Top Button",
+    "show": true,
+    "buttons": [{
+      "name": "Temperature",
+      "icon": "wi wi-thermometer",
+      "entity": "sensor.living_room_temperature"
+    }, {
+      "name": "Humidity",
+      "icon": "wi wi-humidity",
+      "entity": "sensor.living_room_humidity"
+    }, {
+      "name": "Air Quantity",
+      "icon": "fab fa-cloudversify",
+      "entity": "sensor.us_air_quality_index"
+    }, {
+      "name": "Air Pollution Level",
+      "icon": "fab fa-hornbill",
+      "entity": "sensor.us_air_pollution_level"
+    }, {
+      "name": "Air Main Pollutant",
+      "icon": "far fa-meh-rolling-eyes",
+      "entity": "sensor.us_main_pollutant"
+    }, {
+      "name": "Season",
+      "icon": "wi wi-day-cloudy",
+      "entity": "sensor.season"
+    }]
+  },
+  "devices": [{
+    "name": "Home Assistant",
+    "component": "homeAssistant",
+    "listDetail": [{
+      "name": "IPv4 Address",
+      "entity": "sensor.ipv4_address_wlan0"
+    }, {
+      "name": "Last boot",
+      "entity": "sensor.last_boot"
+    }, {
+      "name": "Upload speed",
+      "entity": "sensor.speedtest_upload"
+    }, {
+      "name": "Download speed",
+      "entity": "sensor.speedtest_download"
+    }],
+    "booleanButton": [{
+      "name": "Go out mode",
+      "entity": "input_boolean.system_go_out_mode"
+    }, {
+      "name": "Voice message",
+      "entity": "input_boolean.information_messages"
+    }, {
+      "name": "Sleep mode",
+      "entity": "input_boolean.system_sleep_mode"
+    }]
+  }, {
+    "name": "Raspberry",
+    "component": "raspberry",
+    "listDetail": [{
+      "name": "CPU",
+      "entity": "sensor.processor_use"
+    }, {
+      "name": "TEMP",
+      "entity": "sensor.processor_temperature"
+    }, {
+      "name": "RAM",
+      "entity": "sensor.memory_use_percent"
+    }, {
+      "name": "HDD",
+      "entity": "sensor.disk_use_percent_"
+    }]
+  }, {
+    "name": "Network",
+    "component": "speedtest",
+    "listDetail": [{
+      "name": "DOWN",
+      "entity": "sensor.speedtest_download"
+    }, {
+      "name": "UP",
+      "entity": "sensor.speedtest_upload"
+    }, {
+      "name": "PING",
+      "entity": "sensor.speedtest_ping"
+    }]
+  }, {
+    "name": "Main Light",
+    "icon": "mdi mdi-ceiling-light",
+    "component": "light",
+    "power": "switch.main_light_power",
+    "sleepMode": "switch.main_light_sleep",
+    "brightnessLevel": "input_number.main_light_brightness",
+    "colors": false,
+    "modal": true,
+    "timeSleepStatus": "input_boolean.main_light_sleep",
+    "timeSleep": "input_datetime.main_light_sleep",
+    "timeWakeupStatus": "input_boolean.main_light_wake_up",
+    "timeWakeup": "input_datetime.main_light_wake_up"
+  }, {
+    "name": "Front Light",
+    "icon": "mdi mdi-lightbulb-on",
+    "component": "light",
+    "power": "switch.front_light",
+    "brightness_level": false,
+    "colors": false,
+    "modal": false,
+    "sleepMode": false,
+    "timeSleepStatus": false,
+    "timeSleep": false,
+    "timeWakeupStatus": false,
+    "timeWakeup": false
+  }, {
+    "name": "Barthroom",
+    "component": "room",
+    "light": "switch.barthroom_light",
+    "fan": false,
+    "icon": "mdi mdi-shower",
+    "doorSensor": "binary_sensor.barthroom_door",
+    "tempSensor": false
+  }, {
+    "name": "Toilet",
+    "component": "room",
+    "light": "switch.toilet_light",
+    "fan": "switch.toilet_fan",
+    "icon": "mdi mdi-toilet",
+    "doorSensor": "binary_sensor.toilet_door",
+    "tempSensor": false
+  }, {
+    "name": "SHARP",
+    "icon": "mdi mdi-air-conditioner",
+    "component": "aircon",
+    "entity": "climate.panasonic_ac",
+    "timeSleepStatus": "input_boolean.aircon_sleep",
+    "timeSleep": "input_datetime.aircon_sleep",
+    "timeWakeupStatus": "input_boolean.aircon_wake_up",
+    "timeWakeup": "input_datetime.aircon_wake_up"
+  }, {
+    "name": "Panasonic TV",
+    "icon": "mdi mdi-television",
+    "component": "mediaPlayer",
+    "entity": "media_player.tv"
+  }, {
+    "name": "Onkyo Amply",
+    "icon": "mdi mdi-speaker-wireless",
+    "component": "mediaPlayer",
+    "entity": "media_player.pc_speaker"
+  }, {
+    "name": "Vacuum Cleaner",
+    "icon": "mdi mdi-robot-vacuum",
+    "component": "vacuumCleaner",
+    "power": "switch.eufy_cleaner_power"
+  }, {
+    "name": "Keite PC",
+    "icon": "mdi mdi-desktop-mac-dashboard",
+    "component": "computer",
+    "power": "switch.pc"
+  }]
+}
