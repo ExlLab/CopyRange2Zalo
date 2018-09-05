@@ -43,9 +43,11 @@
     "component": "homeAssistant",
     "network": [{
       "name": "Upload",
+      "icon": "mdi mdi-upload-network",
       "entity": "sensor.speedtest_upload"
     }, {
       "name": "Download",
+      "icon": "mdi mdi-download-network",
       "entity": "sensor.speedtest_download"
     }],
     "listDetail": [{
@@ -53,13 +55,13 @@
       "icon": "mdi mdi-counter",
       "entity": "sensor.ipv4_address_wlan0"
     }, {
-      "name": "Lastboot",
-      "icon": "mdi mdi-power-settings",
-      "entity": "sensor.last_boot"
-    }, {
       "name": "PING",
       "icon": "mdi mdi-access-point-network",
       "entity": "sensor.speedtest_ping"
+    }, {
+      "name": "Lastboot",
+      "icon": "mdi mdi-power-settings",
+      "entity": "sensor.last_boot"
     }, {
       "name": "CPU usage",
       "icon": "mdi mdi-chip",
@@ -82,16 +84,16 @@
       "entity": "sensor.living_room_temperature"
     }],
     "booleanButton": [{
-      "name": "Go out mode",
-      "icon": "fas fa-home",
+      "name": "RA KHỎI NHÀ",
+      "icon": "mdi mdi-home-lock",
       "entity": "input_boolean.system_go_out_mode"
     }, {
-      "name": "Voice message",
-      "icon": "far fa-bell",
+      "name": "THÔNG BÁO BẰNG ÂM THANH",
+      "icon": "mdi mdi-voice",
       "entity": "input_boolean.information_messages"
     }, {
-      "name": "Sleep mode",
-      "icon": "fas fa-bed",
+      "name": "ĐI NGỦ",
+      "icon": "mdi mdi-hotel",
       "entity": "input_boolean.system_sleep_mode"
     }]
   }, {
