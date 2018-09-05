@@ -2,6 +2,7 @@
   "system": {
     "name": "Nhà của Cún Kute",
     "language": "vn-VI",
+    "debug": true,
     "colors": {
       "header": "#000",
       "switch": ""
@@ -40,57 +41,58 @@
   "devices": [{
     "name": "Home Assistant",
     "component": "homeAssistant",
-    "listDetail": [{
-      "name": "IPv4 Address",
-      "entity": "sensor.ipv4_address_wlan0"
-    }, {
-      "name": "Last boot",
-      "entity": "sensor.last_boot"
-    }, {
-      "name": "Upload speed",
+    "network": [{
+      "name": "Upload",
       "entity": "sensor.speedtest_upload"
     }, {
-      "name": "Download speed",
+      "name": "Download",
       "entity": "sensor.speedtest_download"
+    }],
+    "listDetail": [{
+      "name": "IPv4",
+      "icon": "mdi mdi-counter",
+      "entity": "sensor.ipv4_address_wlan0"
+    }, {
+      "name": "Lastboot",
+      "icon": "mdi mdi-power-settings",
+      "entity": "sensor.last_boot"
+    }, {
+      "name": "PING",
+      "icon": "mdi mdi-access-point-network",
+      "entity": "sensor.speedtest_ping"
+    }, {
+      "name": "CPU usage",
+      "icon": "mdi mdi-chip",
+      "entity": "sensor.processor_use"
+    }, {
+      "name": "CPU temp",
+      "icon": "mdi mdi-oil-temperature",
+      "entity": "sensor.processor_temperature"
+    }, {
+      "name": "Memory",
+      "icon": "mdi mdi-memory",
+      "entity": "sensor.memory_use_percent"
+    }, {
+      "name": "HDD usage",
+      "icon": "mdi mdi-harddisk",
+      "entity": "sensor.disk_use_percent_"
+    }, {
+      "name": "Temperature",
+      "icon": "wi wi-thermometer",
+      "entity": "sensor.living_room_temperature"
     }],
     "booleanButton": [{
       "name": "Go out mode",
+      "icon": "fas fa-home",
       "entity": "input_boolean.system_go_out_mode"
     }, {
       "name": "Voice message",
+      "icon": "far fa-bell",
       "entity": "input_boolean.information_messages"
     }, {
       "name": "Sleep mode",
+      "icon": "fas fa-bed",
       "entity": "input_boolean.system_sleep_mode"
-    }]
-  }, {
-    "name": "Raspberry",
-    "component": "raspberry",
-    "listDetail": [{
-      "name": "CPU",
-      "entity": "sensor.processor_use"
-    }, {
-      "name": "TEMP",
-      "entity": "sensor.processor_temperature"
-    }, {
-      "name": "RAM",
-      "entity": "sensor.memory_use_percent"
-    }, {
-      "name": "HDD",
-      "entity": "sensor.disk_use_percent_"
-    }]
-  }, {
-    "name": "Network",
-    "component": "speedtest",
-    "listDetail": [{
-      "name": "DOWN",
-      "entity": "sensor.speedtest_download"
-    }, {
-      "name": "UP",
-      "entity": "sensor.speedtest_upload"
-    }, {
-      "name": "PING",
-      "entity": "sensor.speedtest_ping"
     }]
   }, {
     "name": "Main Light",
@@ -118,6 +120,13 @@
     "timeSleep": false,
     "timeWakeupStatus": false,
     "timeWakeup": false
+  }, {
+    "name": "Fan",
+    "icon": "mdi mdi-fan",
+    "component": "fan",
+    "power": "switch.barthroom_light",
+    "speed": "input_number.main_light_brightness",
+    "osc": "switch.barthroom_light"
   }, {
     "name": "Barthroom",
     "component": "room",
