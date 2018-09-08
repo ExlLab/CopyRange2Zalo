@@ -2,7 +2,7 @@
   "system": {
     "name": "Nhà của Cún Kute",
     "language": "vn-VI",
-    "debug": true,
+    "debug": false,
     "colors": {
       "header": "#000",
       "switch": ""
@@ -11,7 +11,7 @@
   "yahoo": 1117099,
   "topButton": {
     "name": "Top Button",
-    "show": true,
+    "show": false,
     "buttons": [{
       "name": "Temperature",
       "icon": "wi wi-thermometer",
@@ -79,9 +79,17 @@
       "icon": "mdi mdi-harddisk",
       "entity": "sensor.disk_use_percent_"
     }, {
-      "name": "Temperature",
+      "name": "Nhiệt độ",
       "icon": "wi wi-thermometer",
       "entity": "sensor.living_room_temperature"
+    }, {
+      "name": "Air Quantity",
+      "icon": "mdi mdi-mixcloud",
+      "entity": "sensor.us_air_quality_index"
+    }, {
+      "name": "Độ ẩm",
+      "icon": "wi wi-humidity",
+      "entity": "sensor.living_room_humidity"
     }],
     "booleanButton": [{
       "name": "RA KHỎI NHÀ",
@@ -165,7 +173,7 @@
     "component": "mediaPlayer",
     "entity": "media_player.pc_speaker"
   }, {
-    "name": "Vacuum Cleaner",
+    "name": "Eufy Robot",
     "icon": "mdi mdi-robot-vacuum",
     "component": "vacuumCleaner",
     "power": "switch.eufy_cleaner_power"
