@@ -8,7 +8,11 @@
       "switch": ""
     }
   },
-  "yahoo": 1117099,
+  "yahoo": {
+    "code": 1117099,
+    "cityName": "Fukuoka",
+    "tempUnit": "C"
+  },
   "topButton": {
     "name": "Top Button",
     "show": false,
