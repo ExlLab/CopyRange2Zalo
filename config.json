@@ -3,6 +3,7 @@
     "name": "Nhà của Cún Kute",
     "language": "vn-VI",
     "debug": false,
+    "tempUnit": "°C",
     "colors": {
       "header": "#000",
       "switch": ""
@@ -87,9 +88,9 @@
       "icon": "wi wi-thermometer",
       "entity": "sensor.living_room_temperature"
     }, {
-      "name": "Air Quantity",
-      "icon": "mdi mdi-mixcloud",
-      "entity": "sensor.us_air_quality_index"
+      "name": "SSL cert expiry",
+      "icon": "mdi mdi-certificate",
+      "entity": "sensor.ssl_cert_expiry"
     }, {
       "name": "Độ ẩm",
       "icon": "wi wi-humidity",
@@ -134,13 +135,6 @@
     "timeSleep": false,
     "timeWakeupStatus": false,
     "timeWakeup": false
-  }, {
-    "name": "Fan",
-    "icon": "mdi mdi-fan",
-    "component": "fan",
-    "power": "switch.barthroom_light",
-    "speed": "input_number.main_light_brightness",
-    "osc": "switch.barthroom_light"
   }, {
     "name": "Barthroom",
     "component": "room",
@@ -187,10 +181,11 @@
     "component": "computer",
     "power": "switch.pc"
   }, {
-    "name": "Camera chính",
-    "icon": "mdi mdi-cctv",
-    "component": "camera",
-    "timeRefresh": "10000",
-    "entity": "switch.pc"
+    "name": "Fan",
+    "icon": "mdi mdi-fan",
+    "component": "fan",
+    "power": "switch.barthroom_light",
+    "speed": "input_number.main_light_brightness",
+    "osc": "switch.barthroom_light"
   }]
 }
