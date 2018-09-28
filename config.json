@@ -20,11 +20,11 @@
     "buttons": [{
       "name": "Temperature",
       "icon": "wi wi-thermometer",
-      "entity": "sensor.living_room_temperature"
+      "entity": "sensor.dht_sensor_temperature"
     }, {
       "name": "Humidity",
       "icon": "wi wi-humidity",
-      "entity": "sensor.living_room_humidity"
+      "entity": "sensor.dht_sensor_humidity"
     }, {
       "name": "Air Quantity",
       "icon": "fab fa-cloudversify",
