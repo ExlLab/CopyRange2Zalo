@@ -2,7 +2,7 @@
   "system": {
     "name": "Nhà của Cún Kute",
     "language": "vn-VI",
-    "debug": false,
+    "debug": true,
     "tempUnit": "°C",
     "colors": {
       "header": "#000",
@@ -20,11 +20,11 @@
     "buttons": [{
       "name": "Temperature",
       "icon": "wi wi-thermometer",
-      "entity": "sensor.dht_sensor_temperature"
+      "entity": "sensor.living_room_temperature"
     }, {
       "name": "Humidity",
       "icon": "wi wi-humidity",
-      "entity": "sensor.dht_sensor_humidity"
+      "entity": "sensor.living_room_humidity"
     }, {
       "name": "Air Quantity",
       "icon": "fab fa-cloudversify",
@@ -152,7 +152,7 @@
     "doorSensor": "binary_sensor.toilet_door",
     "tempSensor": false
   }, {
-    "name": "SHARP",
+    "name": "SHARP AC",
     "icon": "mdi mdi-air-conditioner",
     "component": "aircon",
     "entity": "climate.panasonic_ac",
@@ -174,7 +174,51 @@
     "name": "Eufy Robot",
     "icon": "mdi mdi-robot-vacuum",
     "component": "vacuumCleaner",
-    "power": "switch.eufy_cleaner_power"
+    "power": "switch.eufy_cleaner_power",
+    "direction": {
+      "up": "switch.eufy_cleaner_up",
+      "down": "switch.eufy_cleaner_down",
+      "left": "switch.eufy_cleaner_left",
+      "right": "switch.eufy_cleaner_right",
+      "center": "switch.eufy_cleaner_start_stop"
+    },
+    "buttons": [{
+      "name": "",
+      "entity": "switch.eufy_cleaner_charge",
+      "icon": "mdi mdi-battery-charging-10"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_alarm",
+      "icon": "mdi mdi-bell-ring"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_auto",
+      "icon": "mdi mdi-brightness-auto"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_edge_cleaning",
+      "icon": "mdi mdi-rounded-corner"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_max_cleaning",
+      "icon": "mdi mdi-home-variant"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_single_room_cleaning",
+      "icon": "mdi mdi-camera-burst"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_spot_cleaning",
+      "icon": "mdi mdi-crosshairs-gps"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_timer",
+      "icon": "mdi mdi-av-timer"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_timer",
+      "icon": "mdi mdi-av-timer"
+    }]
   }, {
     "name": "Keite PC",
     "icon": "mdi mdi-desktop-mac-dashboard",
