@@ -86,7 +86,7 @@
     }, {
       "name": "Nhiệt độ",
       "icon": "wi wi-thermometer",
-      "entity": "sensor.living_room_temperature"
+      "entity": "sensor.dht_sensor_temperature"
     }, {
       "name": "SSL cert expiry",
       "icon": "mdi mdi-certificate",
@@ -94,7 +94,7 @@
     }, {
       "name": "Độ ẩm",
       "icon": "wi wi-humidity",
-      "entity": "sensor.living_room_humidity"
+      "entity": "sensor.dht_sensor_humidity"
     }],
     "booleanButton": [{
       "name": "RA KHỎI NHÀ",
@@ -138,6 +138,7 @@
   }, {
     "name": "Barthroom",
     "component": "room",
+    "group": "group.barthroom_switch",
     "light": "switch.barthroom_light",
     "fan": false,
     "icon": "mdi mdi-shower",
@@ -146,6 +147,7 @@
   }, {
     "name": "Toilet",
     "component": "room",
+    "group": "group.toilet_switch",
     "light": "switch.toilet_light",
     "fan": "switch.toilet_fan",
     "icon": "mdi mdi-toilet",
