@@ -1,13 +1,7 @@
 {
   "system": {
     "name": "Nhà của Cún Kute",
-    "language": "vn-VI",
-    "debug": true,
-    "tempUnit": "°C",
-    "colors": {
-      "header": "#000",
-      "switch": ""
-    }
+    "debug": false
   },
   "yahoo": {
     "code": 1117099,
@@ -233,5 +227,11 @@
     "power": "switch.barthroom_light",
     "speed": "input_number.main_light_brightness",
     "osc": "switch.barthroom_light"
+  }, {
+    "name": "Camera",
+    "component": "camera",
+    "entity": "camera.local_file",
+    "icon": "mdi mdi-av-timer",
+    "timeRefresh": "5000"
   }]
 }
