@@ -1,0 +1,237 @@
+{
+  "system": {
+    "name": "Nhà của Cún Kute",
+    "debug": false
+  },
+  "yahoo": {
+    "code": 1117099,
+    "cityName": "Fukuoka",
+    "tempUnit": "C"
+  },
+  "topButton": {
+    "name": "Top Button",
+    "show": false,
+    "buttons": [{
+      "name": "Temperature",
+      "icon": "wi wi-thermometer",
+      "entity": "sensor.living_room_temperature"
+    }, {
+      "name": "Humidity",
+      "icon": "wi wi-humidity",
+      "entity": "sensor.living_room_humidity"
+    }, {
+      "name": "Air Quantity",
+      "icon": "fab fa-cloudversify",
+      "entity": "sensor.us_air_quality_index"
+    }, {
+      "name": "Air Pollution Level",
+      "icon": "fab fa-hornbill",
+      "entity": "sensor.us_air_pollution_level"
+    }, {
+      "name": "Air Main Pollutant",
+      "icon": "far fa-meh-rolling-eyes",
+      "entity": "sensor.us_main_pollutant"
+    }, {
+      "name": "Season",
+      "icon": "wi wi-day-cloudy",
+      "entity": "sensor.season"
+    }]
+  },
+  "devices": [{
+    "name": "Home Assistant",
+    "component": "homeAssistant",
+    "network": [{
+      "name": "Upload",
+      "icon": "mdi mdi-upload-network",
+      "entity": "sensor.speedtest_upload"
+    }, {
+      "name": "Download",
+      "icon": "mdi mdi-download-network",
+      "entity": "sensor.speedtest_download"
+    }],
+    "listDetail": [{
+      "name": "IPv4",
+      "icon": "mdi mdi-counter",
+      "entity": "sensor.ipv4_address_wlan0"
+    }, {
+      "name": "PING",
+      "icon": "mdi mdi-access-point-network",
+      "entity": "sensor.speedtest_ping"
+    }, {
+      "name": "Lastboot",
+      "icon": "mdi mdi-power-settings",
+      "entity": "sensor.last_boot"
+    }, {
+      "name": "CPU usage",
+      "icon": "mdi mdi-chip",
+      "entity": "sensor.processor_use"
+    }, {
+      "name": "CPU temp",
+      "icon": "mdi mdi-oil-temperature",
+      "entity": "sensor.processor_temperature"
+    }, {
+      "name": "Memory",
+      "icon": "mdi mdi-memory",
+      "entity": "sensor.memory_use_percent"
+    }, {
+      "name": "HDD usage",
+      "icon": "mdi mdi-harddisk",
+      "entity": "sensor.disk_use_percent_"
+    }, {
+      "name": "Nhiệt độ",
+      "icon": "wi wi-thermometer",
+      "entity": "sensor.dht_sensor_temperature"
+    }, {
+      "name": "SSL cert expiry",
+      "icon": "mdi mdi-certificate",
+      "entity": "sensor.ssl_cert_expiry"
+    }, {
+      "name": "Độ ẩm",
+      "icon": "wi wi-humidity",
+      "entity": "sensor.dht_sensor_humidity"
+    }],
+    "booleanButton": [{
+      "name": "RA KHỎI NHÀ",
+      "icon": "mdi mdi-home-lock",
+      "entity": "input_boolean.system_go_out_mode"
+    }, {
+      "name": "THÔNG BÁO BẰNG ÂM THANH",
+      "icon": "mdi mdi-voice",
+      "entity": "input_boolean.information_messages"
+    }, {
+      "name": "ĐI NGỦ",
+      "icon": "mdi mdi-hotel",
+      "entity": "input_boolean.system_sleep_mode"
+    }]
+  }, {
+    "name": "Main Light",
+    "icon": "mdi mdi-ceiling-light",
+    "component": "light",
+    "power": "switch.main_light_power",
+    "sleepMode": "switch.main_light_sleep",
+    "brightnessLevel": "input_number.main_light_brightness",
+    "colors": false,
+    "modal": true,
+    "timeSleepStatus": "input_boolean.main_light_sleep",
+    "timeSleep": "input_datetime.main_light_sleep",
+    "timeWakeupStatus": "input_boolean.main_light_wake_up",
+    "timeWakeup": "input_datetime.main_light_wake_up"
+  }, {
+    "name": "Front Light",
+    "icon": "mdi mdi-lightbulb-on",
+    "component": "light",
+    "power": "switch.front_light",
+    "brightness_level": false,
+    "colors": false,
+    "modal": false,
+    "sleepMode": false,
+    "timeSleepStatus": false,
+    "timeSleep": false,
+    "timeWakeupStatus": false,
+    "timeWakeup": false
+  }, {
+    "name": "Barthroom",
+    "component": "room",
+    "group": "group.barthroom_switch",
+    "light": "switch.barthroom_light",
+    "fan": false,
+    "icon": "mdi mdi-shower",
+    "doorSensor": "binary_sensor.barthroom_door",
+    "tempSensor": false
+  }, {
+    "name": "Toilet",
+    "component": "room",
+    "group": "group.toilet_switch",
+    "light": "switch.toilet_light",
+    "fan": "switch.toilet_fan",
+    "icon": "mdi mdi-toilet",
+    "doorSensor": "binary_sensor.toilet_door",
+    "tempSensor": false
+  }, {
+    "name": "SHARP AC",
+    "icon": "mdi mdi-air-conditioner",
+    "component": "aircon",
+    "entity": "climate.panasonic_ac",
+    "timeSleepStatus": "input_boolean.aircon_sleep",
+    "timeSleep": "input_datetime.aircon_sleep",
+    "timeWakeupStatus": "input_boolean.aircon_wake_up",
+    "timeWakeup": "input_datetime.aircon_wake_up"
+  }, {
+    "name": "Panasonic TV",
+    "icon": "mdi mdi-television",
+    "component": "mediaPlayer",
+    "entity": "media_player.tv"
+  }, {
+    "name": "Onkyo Amply",
+    "icon": "mdi mdi-speaker-wireless",
+    "component": "mediaPlayer",
+    "entity": "media_player.pc_speaker"
+  }, {
+    "name": "Eufy Robot",
+    "icon": "mdi mdi-robot-vacuum",
+    "component": "vacuumCleaner",
+    "power": "switch.eufy_cleaner_power",
+    "direction": {
+      "up": "switch.eufy_cleaner_up",
+      "down": "switch.eufy_cleaner_down",
+      "left": "switch.eufy_cleaner_left",
+      "right": "switch.eufy_cleaner_right",
+      "center": "switch.eufy_cleaner_start_stop"
+    },
+    "buttons": [{
+      "name": "",
+      "entity": "switch.eufy_cleaner_charge",
+      "icon": "mdi mdi-battery-charging-10"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_alarm",
+      "icon": "mdi mdi-bell-ring"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_auto",
+      "icon": "mdi mdi-brightness-auto"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_edge_cleaning",
+      "icon": "mdi mdi-rounded-corner"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_max_cleaning",
+      "icon": "mdi mdi-home-variant"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_single_room_cleaning",
+      "icon": "mdi mdi-camera-burst"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_spot_cleaning",
+      "icon": "mdi mdi-crosshairs-gps"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_timer",
+      "icon": "mdi mdi-av-timer"
+    }, {
+      "name": "",
+      "entity": "switch.eufy_cleaner_timer",
+      "icon": "mdi mdi-av-timer"
+    }]
+  }, {
+    "name": "Keite PC",
+    "icon": "mdi mdi-desktop-mac-dashboard",
+    "component": "computer",
+    "power": "switch.pc"
+  }, {
+    "name": "Fan",
+    "icon": "mdi mdi-fan",
+    "component": "fan",
+    "power": "switch.barthroom_light",
+    "speed": "input_number.main_light_brightness",
+    "osc": "switch.barthroom_light"
+  }, {
+    "name": "Camera",
+    "component": "camera",
+    "entity": "camera.local_file",
+    "icon": "mdi mdi-av-timer",
+    "timeRefresh": "5000"
+  }]
+}
